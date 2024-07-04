@@ -1,0 +1,205 @@
+/* Admin.css */
+
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+/* Theme Colors */
+:root {
+    --themeColor: #662d91; /* Purple theme color */
+    --lightParagraph: #808080;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Default font */
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Styles */
+.admin-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 2rem;
+}
+
+.admin-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.admin-nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.admin-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.admin-nav ul li a:hover {
+    color: #f0f0f0;
+}
+
+/* User Profile Section */
+.user-name {
+    margin: 20px 0;
+}
+
+.user-name h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #333;
+}
+
+.user-name h3 {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Upload Form Styles */
+.admin-upload {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-upload h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.upload-form {
+    margin-top: 10px;
+}
+.upload-label {
+    display: inline-block;
+    margin: 1%;
+    padding: 5px 14px;
+    background-color: var(--themeColor);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+}
+
+.upload-label:hover {
+    background-color: #286090;
+}
+
+.upload-input {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Custom Button Styles */
+.G_btn {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    background-color: var(--themeColor);
+    padding: 12px 24px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: all 1s linear;
+}
+
+.G_btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.G_btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 450%;
+    width: 190%;
+    background: #f0e68c; /* Background color */
+    color: #000; /* Text color */
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.G_btn:hover {
+    color: #ffffff;
+    transition: color 0.5s linear;
+}
+
+.G_btn:hover:after {
+    color: #000;
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+/* Table Styles */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-table th {
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+}
+
+.admin-table td {
+    font-size: 14px;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Response Message */
+.response-message {
+    margin-top: 20px;
+}
+
+.response-message h3 {
+    font-size: 18px;
+    color: #333;
+    padding: 10px 20px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+}

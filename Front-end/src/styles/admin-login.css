@@ -1,0 +1,110 @@
+/* AdminLogin.css */
+
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--primary-light-color);
+  }
+  
+  .admin-login-form {
+    background-color: var(--primary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .admin-login-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-light-color);
+    font-size: 2rem; /* Adjusted font size for heading */
+  }
+  
+  .admin-login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light-color);
+    font-size: 1.5rem; /* Adjusted font size for labels */
+  }
+  
+  .admin-login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 2rem; /* Adjusted font size for inputs */
+  }
+  
+  
+  
+  
+  
+  .G_btn {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem; /* Adjusted font size */
+    background-color: var(--themeColor);
+    padding: 1rem 2rem; /* Adjusted padding */
+    margin: 1rem auto; /* Adjusted margin */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    display: inline-block; /* Ensures button fits content */
+    z-index: 1; /* Ensure button content is above pseudo-element */
+  }
+
+  .G_btn span {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .G_btn:hover {
+    color: #000;
+    background-color: var(--secondary-dark-color); /* Adjusted background color */
+  }
+  
+  .G_btn:after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Centered horizontally */
+    top: 50%; /* Centered vertically */
+    height: 0;
+    width: 100%; /* Full width of button */
+    background: #f0e68c; /* Background color */
+    transform: translateX(-50%) translateY(-50%) rotate(45deg); /* Center the pseudo-element */
+    transition: all 0.5s ease-in-out;
+    z-index: -1; /* Ensure pseudo-element is behind button content */
+  }
+  
+  .G_btn:hover:after {
+    width: 120%; /* Increase width on hover */
+    height: 120%; /* Increase height on hover */
+    transform: translateX(-50%) translateY(-50%) rotate(45deg); /* Maintain center position */
+  }
+  
+  /* Adjusted for .admin-login-form */
+  .admin-login-form .G_btn {
+    width: 100%;
+    max-width: 200px; /* Adjust as needed */
+  }
+  
+  
+  
+  @media (max-width: 600px) {
+    .admin-login-form {
+      padding: 1rem;
+    }
+  }
+  
