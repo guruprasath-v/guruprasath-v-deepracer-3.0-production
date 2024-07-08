@@ -24,6 +24,11 @@ const queryDB = (query, values) => {
 
 
 
+router.get("/", (req, res) => {
+  console.log("Request comming remotely");
+  res.status(200).json("Message from Backend");
+})
+
 
 
 
