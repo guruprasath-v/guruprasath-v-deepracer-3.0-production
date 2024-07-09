@@ -60,6 +60,7 @@ const UserDashboard = () => {
       try {
         const response = await fetch(`${apiBaseUrl}/user-dashboard`, {
           method: 'GET',
+          
           credentials: 'include', // This is important to send cookies with the request
         });
 
