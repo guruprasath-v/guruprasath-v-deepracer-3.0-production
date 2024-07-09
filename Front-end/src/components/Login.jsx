@@ -50,7 +50,7 @@ const Login = () => {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
+      // const data = await response.json();
 
       // Handle successful response
       // console.log(data);

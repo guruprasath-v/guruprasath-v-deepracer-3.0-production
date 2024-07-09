@@ -13,7 +13,7 @@ export default function Logout(){
 
             if (confirmLogout) {
                 try {
-                    const response = await fetch(`${apiBaseUrl}/logout`, {
+                    await fetch(`${apiBaseUrl}/logout`, {
                         method: 'GET',
                         credentials: 'include', // This is important to send cookies with the request
                     });

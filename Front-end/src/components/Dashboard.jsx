@@ -261,7 +261,7 @@ const UserDashboard = () => {
           <h2 className='section-title'>Course Status</h2>
           <div className="profile-container">
             <div className="course-card">
-              <img src={courseImage} alt="course image" className='course-image'/>
+              <img src={courseImage} alt="course" className='course-image'/>
               <h3 className='course-name'>Deepracer Coursera Course</h3>
               <p className='profile-id'>Created by KGISL team</p>
             </div>
