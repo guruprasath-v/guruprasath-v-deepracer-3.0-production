@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: "http://localhost:3000", // Specify your React app's origin
+    origin: "https://deepracer-v3-enhanced.netlify.app", // Specify your React app's origin
     credentials: true, // This allows cookies to be sent with requests
 };
 
