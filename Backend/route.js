@@ -45,6 +45,7 @@ router.post("/admin/login", (req, res) => {
   const query = "SELECT * FROM AdminLogin WHERE UserName = ?";
   db.query(query, req.body.username.trim() , async (err, data) => {
     if(err){
+      console.log(err);
       return res.json("Error");
     }
     if(data.length === 0){
@@ -54,6 +55,7 @@ router.post("/admin/login", (req, res) => {
     const { UserName, UserId, UserPassword } = data[0];
     const passwordMatch = await bcrypt.compare(req.body.password, UserPassword);
     if (!passwordMatch) {
+      console.log("passowrd wrong")
       return res.json("Password Incorrect");
     }
 
@@ -69,7 +71,7 @@ router.post("/admin/login", (req, res) => {
 });
 
 router.get("/admin-dashboard", verifyToken, (req, res) => {
-  // console.log(req.user.UserId);
+  console.log(req.user.UserId);
   
   const query1 = "SELECT DispName FROM Admins WHERE UserId = ?";
   const values1 = [req.user.UserId];
@@ -213,15 +215,18 @@ router.post("/user/login", (req, res) => {
   const query = "SELECT * FROM UserCredLogin WHERE UserName = ?";
   db.query(query, req.body.username.trim() , async (err, data) => {
     if(err){
+      console.log(err);
       return res.json("Error");
     }
     if(data.length === 0){
+      console.log("No user found")
       return res.json("No User Found");
     }
 
     const { UserName, UserId, UserPassword } = data[0];
     const passwordMatch = await bcrypt.compare(req.body.password, UserPassword);
     if (!passwordMatch) {
+      console.log("Incorrect password");
       return res.json("Password Incorrect");
     }
 
