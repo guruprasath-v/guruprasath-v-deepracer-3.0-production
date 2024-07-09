@@ -50,10 +50,10 @@ const AdminLogin = () => {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
+      // const data = await response.json();
 
       // Handle successful response
-      console.log(data);
+      // console.log(data);
       navigate('/admin/secure');
     } catch (error) {
       // Handle error
