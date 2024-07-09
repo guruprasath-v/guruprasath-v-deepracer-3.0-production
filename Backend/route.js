@@ -24,23 +24,18 @@ const queryDB = (query, values) => {
 
 
 
-router.get("/", (req, res) => {
-  console.log("Request comming remotely");
-  res.status(200).json("Message from Backend");
-})
-
 
 
 
 
 router.post("/admin/upload", verifyToken, upload.single('file'), extractuserdetails, (req, res) => {
-  console.log('Connection Made');
+
   if (req.file) {
       res.send("File Uploaded successfully!");
-      console.log(`File present at ${req.file.path}`);
+
   } else {
       res.send("File Not present");
-      console.log("File not present");
+
   }
 });
 
@@ -161,10 +156,10 @@ router.get("/user-dashboard", verifyTokenUser, async (req, res) => {
     }
 
     const team = teamResult[0];
-    console.log(team)
+
     response.teamName = team.TeamName;
     const teamMembers = [team.TeamMember_1, team.TeamMember_2, team.TeamMember_3].filter(Boolean);
-    console.log(teamMembers)
+
     response.teamCount = teamMembers.length;
 
     // Function to set team member details
@@ -173,7 +168,7 @@ router.get("/user-dashboard", verifyTokenUser, async (req, res) => {
       // console.log(teamMemberResult);
       if (teamMemberResult.length > 0) {
         const member = teamMemberResult[0];
-        console.log(member);
+
         response[`teamMember${index}`] = member.DisplayName;
         response[`teamMember${index}Mail`] = member.UserName;
         response[`teamMember${index}LetterGrade`] = member.LetterGrade;
@@ -190,17 +185,18 @@ router.get("/user-dashboard", verifyTokenUser, async (req, res) => {
     // Query to check if all team members passed
     const placeholders = teamMembers.map(() => '?').join(',');
     const teamMembersResult = await queryDB(`SELECT UserId, CoursePassed FROM UserDetails WHERE UserId IN (${placeholders})`, teamMembers);
+
     const allTeamMembersPassed = teamMembersResult.every((member) =>{
-      console.log(member);
-      console.log(member.coursePassed);
+
+      return member.CoursePassed === "1";
     });
-    console.log(allTeamMembersPassed)
+
     response.teamPassed = allTeamMembersPassed;
 
     return res.status(200).json(response);
 
   } catch (err) {
-    console.log('DB error:', err);
+
     return res.status(500).json({ error: 'Database error' });
   }
 });

@@ -72,7 +72,7 @@ const UserDashboard = () => {
           navigate('/login');
         } else {
           const data = await response.json();
-          console.log(data);
+
           setDetails((prevDetails) => ({
             ...prevDetails,
             userName: data.userName,

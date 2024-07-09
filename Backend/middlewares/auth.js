@@ -19,7 +19,7 @@ export const verifyToken = (req, res, next) => {
     req.user = decoded; // Storing the decoded token data (e.g., userId) in req.user
     next(); // Proceed to the next middleware or route handler
   } catch (err) {
-    console.log("Invalid token:", err.message);
+    // console.log("Invalid token:", err.message);
     return res.status(401).json({ message: "Invalid Token" });
   }
 };
@@ -40,7 +40,7 @@ export const verifyTokenUser = (req, res, next) => {
     req.user = decoded; // Storing the decoded token data (e.g., userId) in req.user
     next(); // Proceed to the next middleware or route handler
   } catch (err) {
-    console.log("Invalid token:", err.message);
+    // console.log("Invalid token:", err.message);
     return res.status(401).json({ message: "Invalid Token" });
   }
 };

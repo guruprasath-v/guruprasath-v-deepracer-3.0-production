@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // Specify your React app's origin
+    origin: process.env.ORIGIN || 'http://localhost:3000', // Specify your React app's origin
     credentials: true, // This allows cookies to be sent with requests
 };
 
@@ -30,7 +30,7 @@ app.use('/', routes);
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server listening on port ${process.env.PORT}`);
+    // console.log(`Server listening on port ${process.env.PORT}`);
 });
 
 
