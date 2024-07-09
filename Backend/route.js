@@ -242,7 +242,12 @@ router.get("/logout", (req, res) => {
       // Perform any necessary token verification here
 
       // Clear the JWT cookie
-      res.clearCookie("jwt");
+      res.clearCookie("jwt", {
+        httpOnly: true, 
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Strict',
+        path: '/'
+    });
       res.status(200).json("Logged out successfully");
   } else {
       res.status(400).json("Already logged out"); // Or appropriate status code
