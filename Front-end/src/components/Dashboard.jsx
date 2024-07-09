@@ -8,7 +8,7 @@ import courseImage from "../assets/course.jpeg";
 
 
 
-
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
 
 
@@ -58,7 +58,7 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch('http://localhost:8080/user-dashboard', {
+        const response = await fetch(`${apiBaseUrl}/user-dashboard`, {
           method: 'GET',
           credentials: 'include', // This is important to send cookies with the request
         });

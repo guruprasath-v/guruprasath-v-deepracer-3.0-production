@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "../styles/admin.css";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
+
 export default function Admin() {
     const navigate = useNavigate();
     const [response, setResponse] = useState(null);
@@ -13,7 +15,7 @@ export default function Admin() {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await fetch('http://localhost:8080/admin-dashboard', {
+                const response = await fetch(`${apiBaseUrl}/admin-dashboard`, {
                     method: 'GET',
                     credentials: 'include', // This is important to send cookies with the request
                 });
@@ -41,7 +43,7 @@ export default function Admin() {
         formdata.append('file', file);
 
         try {
-            const res = await fetch('http://localhost:8080/admin/upload', {
+            const res = await fetch(`${apiBaseUrl}/admin/upload`, {
                 method: 'POST',
                 body: formdata,
                 credentials: 'include'

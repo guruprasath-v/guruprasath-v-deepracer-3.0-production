@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
 
 const Reset = () => {
   const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ const Reset = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/user/reset-password', {
+      const response = await fetch(`${apiBaseUrl}/user/reset-password`, {
         method: 'POST',
         credentials: 'include',
         headers: {

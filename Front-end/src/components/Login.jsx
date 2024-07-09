@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
+
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +13,7 @@ const Login = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:8080/user-dashboard', {
+        const response = await fetch(`${apiBaseUrl}/user-dashboard`, {
           method: 'GET',
           credentials: 'include', // This is important to send cookies with the request
         });
@@ -34,7 +37,7 @@ const Login = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/user/login', {
+      const response = await fetch(`${apiBaseUrl}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

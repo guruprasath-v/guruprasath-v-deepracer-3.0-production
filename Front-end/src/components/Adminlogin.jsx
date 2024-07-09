@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../styles/admin-login.css";
 
+
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
+
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -10,7 +13,7 @@ const AdminLogin = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:8080/admin-dashboard', {
+        const response = await fetch(`${apiBaseUrl}/admin-dashboard`, {
           method: 'GET',
           credentials: 'include', // This is important to send cookies with the request
         });
@@ -34,7 +37,7 @@ const AdminLogin = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/admin/login', {
+      const response = await fetch(`${apiBaseUrl}/admin/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

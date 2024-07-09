@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL
+
 export default function Logout(){
     const navigate = useNavigate();
 
@@ -11,7 +13,7 @@ export default function Logout(){
 
             if (confirmLogout) {
                 try {
-                    const response = await fetch('http://localhost:8080/logout', {
+                    const response = await fetch(`${apiBaseUrl}/logout`, {
                         method: 'GET',
                         credentials: 'include', // This is important to send cookies with the request
                     });

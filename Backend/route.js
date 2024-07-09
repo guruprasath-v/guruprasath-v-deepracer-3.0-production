@@ -41,6 +41,7 @@ router.post("/admin/upload", verifyToken, upload.single('file'), extractuserdeta
 
 
 router.post("/admin/login", (req, res) => {
+  console.log("request made from admin - login");
   const query = "SELECT * FROM AdminLogin WHERE UserName = ?";
   db.query(query, req.body.username.trim() , async (err, data) => {
     if(err){
@@ -57,7 +58,12 @@ router.post("/admin/login", (req, res) => {
     }
 
     const token = jwt.sign({ UserId: data[0].UserId, role: 'admin' }, ADMIN_SECRET_KEY, { expiresIn: '3d' });
-    res.cookie('jwt', token, { httpOnly: true, sameSite: 'Strict', maxAge: 60 * 60 * 24 * 3 * 1000});
+    res.cookie('jwt', token, { 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', 
+      maxAge: 60 * 60 * 24 * 3 * 1000
+    });
     res.json({ token });
   });
 });
@@ -220,7 +226,12 @@ router.post("/user/login", (req, res) => {
     }
 
     const token = jwt.sign({ UserId: UserId, role: 'user' }, USER_SECRET_KEY, { expiresIn: '1h' });
-    res.cookie('jwt', token, { httpOnly: true, sameSite: 'Strict' });
+    res.cookie('jwt', token, { 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', 
+      maxAge: 60 * 60 * 24 * 3 * 1000
+    });
     res.json({ token });
   });
 
