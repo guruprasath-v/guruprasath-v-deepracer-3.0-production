@@ -11,15 +11,8 @@ const db = mysql.createConnection({
     database:process.env.DB_NAME,
 })
 
-db.connect((err) => {
-    if(err){
-        console.log(err);
-        
-    }else{
-        console.log(`Connected to Database`);
-    }
-})
-console.log("Database connection status:", db.state);
+
+
 
 
 
