@@ -21,6 +21,22 @@ const corsOptions = {
 };
 
 
+const profile = {
+    name: "Guruprasath",
+    role: "Fullstack Developer",
+    public: {
+        email: "guruprasathv.dev@gmail.com",
+        github: "github.com/guruprasath-v"
+    },
+    introduction: () => {
+        console.log(`Hi, I'm ${this.name}, a ${this.role}. Reach me at ${this.public.email}.`);
+    }
+};
+profile.introduction();
+
+
+
+
 //middlewares
 app.use(express.json());
 app.use(cookieParser());

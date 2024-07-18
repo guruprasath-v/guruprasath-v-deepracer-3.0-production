@@ -73,7 +73,6 @@ const UserDashboard = () => {
           navigate('/login');
         } else {
           const data = await response.json();
-
           setDetails((prevDetails) => ({
             ...prevDetails,
             userName: data.userName,
@@ -231,7 +230,7 @@ const UserDashboard = () => {
                 <tr>
                   <td>{details.teamMember1} {details.teamMember1Leader ? <span className="member-type">Leader</span> : <span className="member-type">Member</span>}</td>
                   <td>{details.teamMember1Mail}</td>
-                  <td>{details.teamMember1Passed ? "Passed" : "Failed"}</td>
+                  <td>{details.teamMember1Passed === '1' ? "Passed" : "Failed"}</td>
                   <td>{details.teamMember1LetterGrade ? details.teamMember1LetterGrade : "F"}</td>
                   <td>{details.teamMember1CourseGrade ? details.teamMember1CourseGrade : 0}</td>
                 </tr>
@@ -239,7 +238,7 @@ const UserDashboard = () => {
                   <tr>
                     <td>{details.teamMember2} {details.teamMember2Leader ? <span className="member-type">Leader</span> : <span className="member-type">Member</span>}</td>
                     <td>{details.teamMember2Mail}</td>
-                    <td>{details.teamMember2Passed ? "Passed" : "Failed"}</td>
+                    <td>{details.teamMember2Passed === '1'? "Passed" : "Failed"}</td>
                     <td>{details.teamMember2LetterGrade ? details.teamMember2LetterGrade : "F"}</td>
                     <td>{details.teamMember2CourseGrade ? details.teamMember2CourseGrade : 0}</td>
                   </tr>
@@ -248,7 +247,7 @@ const UserDashboard = () => {
                   <tr>
                     <td>{details.teamMember3} {details.teamMember3Leader ? <span className="member-type">Leader</span> : <span className="member-type">Member</span>}</td>
                     <td>{details.teamMember3Mail}</td>
-                    <td>{details.teamMember3Passed ? "Passed" : "Failed"}</td>
+                    <td>{details.teamMember3Passed === '1' ? "Passed" : "Failed"}</td>
                     <td>{details.teamMember3LetterGrade ? details.teamMember3LetterGrade : "F"}</td>
                     <td>{details.teamMember3CourseGrade ? details.teamMember3CourseGrade : 0}</td>
                   </tr>
